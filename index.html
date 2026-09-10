@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awaaz — Your voice, translated into action.</title>
+    <meta name="description" content="An AI-powered civic complaint platform that turns spoken Urdu complaints into structured, actionable complaints." />
+    <meta property="og:title" content="Awaaz — Your voice, translated into action." />
+    <meta property="og:description" content="Speak your civic complaint naturally in Urdu. Awaaz uses AI to understand, route, and draft your complaint." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#09090b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+      html.dark, html.dark body { background-color: #09090b; color: #fafafa; }
+      html.light, html.light body { background-color: #ffffff; color: #09090b; }
+    </style>
+    <script>
+      (function() {
+        function applyTheme(theme) {
+          document.documentElement.classList.remove('light', 'dark');
+          document.documentElement.classList.add(theme);
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        const saved = localStorage.getItem('awaaz-theme');
+        if (saved) { applyTheme(saved); }
+        else if (window.matchMedia('(prefers-color-scheme: light)').matches) { applyTheme('light'); }
+        else { applyTheme('dark'); }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
